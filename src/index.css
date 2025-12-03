@@ -1,0 +1,8 @@
+@import "tailwindcss";
+
+
+body, html {
+  overflow-x: hidden;   /* good */
+  overflow-y: auto;     /* enables scroll */
+}
+
