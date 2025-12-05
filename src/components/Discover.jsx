@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Img1 from "../assets/images/aviquest discover1.png";  
-import Img2 from "../assets/images/aviquest discover.png";  
+import Img2 from "../assets/images/aviquest discover1.png";  
 
 export default function WelcomeSection() {
   const images = [Img1, Img2];
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  // Auto-swap every 2 seconds
+  // Auto-swap every 5 seconds
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex(prev => (prev + 1) % images.length);
@@ -18,17 +18,20 @@ export default function WelcomeSection() {
 
   return (
     <section className="py-20 bg-white">
-      <div className="container mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+      {/* MOBILE + TABLET = 1 COLUMN  
+          DESKTOP = 2 COLUMNS 
+          (ONLY change made: md:grid-cols-1)
+      */}
+      <div className="container mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         {/* LEFT CONTENT */}
         <div>
-          {/* ONE-LINE TITLE */}
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-800 leading-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-800 leading-tight text-center md:text-center lg:text-left">
             Welcome to{" "}
             <span className="text-[#0470aa]">Aviquest Healthcare</span>
           </h2>
 
-          {/* DESCRIPTION */}
           <p className="text-gray-700 text-lg leading-relaxed mt-6 text-justify">
             At Aviquest Healthcare, we are redefining excellence in poultry health and nutrition. 
             As a leading healthcare company specializing in the development and marketing of premium 
@@ -42,16 +45,17 @@ export default function WelcomeSection() {
             stakeholders across the globe.
           </p>
 
-          {/* KNOW MORE BUTTON */}
-          <Link
-            to="/about"
-            className="mt-8 inline-block px-10 py-3 bg-[#0470aa] text-white text-lg font-semibold rounded-full shadow-lg hover:bg-[#036099] transition !no-underline"
-          >
-            Know More
-          </Link>
+          <div className="flex justify-center md:justify-center lg:justify-start">
+            <Link
+              to="/about"
+              className="mt-8 inline-block px-10 py-3 bg-[#0470aa] text-white text-lg font-semibold rounded-full shadow-lg hover:bg-[#036099] transition !no-underline"
+            >
+              Know More
+            </Link>
+          </div>
         </div>
 
-        {/* RIGHT SIDE – IMAGE THAT AUTOMATICALLY SWAPS */}
+        {/* RIGHT SIDE — AUTO SWAPPING IMAGE */}
         <div className="flex justify-center">
           <div className="w-full max-w-xl h-96 rounded-2xl overflow-hidden shadow-lg">
             <img

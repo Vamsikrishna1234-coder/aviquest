@@ -6,3 +6,21 @@ body, html {
   overflow-y: auto;     /* enables scroll */
 }
 
+
+html, body {
+  scroll-behavior: smooth;
+  scrollbar-width: thin;
+  scrollbar-color: #0470aa #e0e0e0;
+}
+
+body {
+  overscroll-behavior: none;
+  -webkit-overflow-scrolling: touch;
+  
+}
+
+body, * {
+  cursor: url('/chick cursor.png') 14 14, auto !important;
+}
+
+

@@ -1,22 +1,26 @@
 import React from "react";
-import Blog1 from "../assets/images/blog1 aviquest.png"
-import Blog2 from "../assets/images/blog2 aviquest.png"
-import Blog3 from "../assets/images/blog3 aviquest.png"
+import { useNavigate } from "react-router-dom";
+
+import Blog1 from "../assets/images/blog1 aviquest.png";
+import Blog2 from "../assets/images/blog2 aviquest.png";
+import Blog3 from "../assets/images/blog3 aviquest.png";
 
 export default function BlogsSection() {
+  const navigate = useNavigate();
+
   const blogs = [
     {
-      id: 1,
+      id: "nutrition-insights",
       title: "The Role of Nutrition in Poultry Health: Key Insights",
       img: Blog1,
     },
     {
-      id: 2,
+      id: "poultry-vaccine-advances",
       title: "Latest Advances in Poultry Vaccines and Immunization",
       img: Blog2,
     },
     {
-      id: 3,
+      id: "sustainable-poultry-farming",
       title: "Sustainable Practices in Modern Poultry Farming",
       img: Blog3,
     },
@@ -33,20 +37,25 @@ export default function BlogsSection() {
           </span>
 
           <h2 className="text-4xl md:text-6xl font-black text-gray-900">
-            Our <span className="bg-gradient-to-r from-[#0470aa] to-[#2d6715] bg-clip-text text-transparent">Blogs</span>
+            Our{" "}
+            <span className="bg-gradient-to-r from-[#0470aa] to-[#2d6715] bg-clip-text text-transparent">
+              Blogs
+            </span>
           </h2>
 
-          <p className="text-gray-600 text-lg max-w-2xl mx-auto">
-            Stay informed with expert insights on poultry nutrition, veterinary care, and sustainable poultry healthcare practices.
+          <p className="text-gray-600 text-lg max-w-2xl mx-auto no-underline decoration-0">
+            Stay informed with expert insights on poultry nutrition, veterinary care,
+            and sustainable poultry healthcare practices.
           </p>
         </div>
 
-        {/* Blogs Grid */}
+        {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
           {blogs.map((blog) => (
             <div
               key={blog.id}
-              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100"
+              onClick={() => navigate(`/blog/${blog.id}`)}
+              className="group bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 border border-gray-100 cursor-pointer"
             >
               {/* Blog Image */}
               <div className="h-56 overflow-hidden">
@@ -59,26 +68,28 @@ export default function BlogsSection() {
 
               {/* Content */}
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-800 group-hover:text-[#0470aa] transition-colors duration-300">
+
+                <h3 className="text-xl font-bold text-gray-800 group-hover:text-[#0470aa] transition-colors duration-300 no-underline decoration-0 hover:no-underline">
                   {blog.title}
                 </h3>
 
-                <p className="text-gray-500 mt-3 text-sm">
+                <p className="text-gray-500 mt-3 text-sm no-underline decoration-0 hover:no-underline">
                   Learn more about the latest developments and essential insights in poultry health management...
                 </p>
 
                 {/* Read More */}
-                <button className="mt-5 inline-flex items-center gap-2 text-[#0470aa] font-semibold group/btn">
-                  <span className="group-hover/btn:underline">Read More</span>
+                <div className="mt-5 inline-flex items-center gap-2 text-[#0470aa] font-semibold no-underline decoration-0 hover:no-underline">
+                  <span className="no-underline decoration-0 hover:no-underline">Read More</span>
                   <svg
-                    className="w-4 h-4 transition-transform group-hover/btn:translate-x-1"
+                    className="w-4 h-4 transition-transform group-hover:translate-x-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
-                </button>
+                </div>
+
               </div>
             </div>
           ))}

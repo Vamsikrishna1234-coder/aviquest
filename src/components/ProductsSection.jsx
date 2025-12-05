@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
 import Prod1 from "../assets/images/products/calcipro.png";
 import Prod2 from "../assets/images/products/bioshield.png";
 import Prod3 from "../assets/images/products/shellguard.png";
@@ -9,18 +10,18 @@ import Prod6 from "../assets/images/products/aqsan.png";
 import Prod7 from "../assets/images/products/phytacare.png";
 import Prod8 from "../assets/images/products/aqmix.png";
 
-export default function ProductsSection({ showButton = true }) {   // <--- NEW PROP
+export default function ProductsSection({ showButton = true }) {
   const [hoveredId, setHoveredId] = useState(null);
 
   const products = [
-    { id: 1, name: "CalciPro", img: Prod1, category: "Nutrition" },
-    { id: 2, name: "BioShield-X", img: Prod2, category: "Nutrition" },
-    { id: 3, name: "ShellGuard", img: Prod3, category: "Nutrition" },
-    { id: 4, name: "MinTreat", img: Prod4, category: "Supplements" },
-    { id: 5, name: "EnzyPlus", img: Prod5, category: "Supplements" },
-    { id: 6, name: "Aq San", img: Prod6, category: "Veterinary" },
-    { id: 7, name: "PhytaCare", img: Prod7, category: "Supplements" },
-    { id: 8, name: "Aq Mix", img: Prod8, category: "Nutrition" },
+    { id: "calcipro", name: "CalciPro", img: Prod1, category: "Nutrition" },
+    { id: "bioshield-x", name: "BioShield-X", img: Prod2, category: "Nutrition" },
+    { id: "shellguard", name: "ShellGuard", img: Prod3, category: "Nutrition" },
+    { id: "mintreat", name: "MinTreat", img: Prod4, category: "Supplements" },
+    { id: "enzyplus-p", name: "EnzyPlus", img: Prod5, category: "Supplements" },
+    { id: "aq-san", name: "Aq San", img: Prod6, category: "Veterinary" },
+    { id: "phytacare", name: "PhytaCare", img: Prod7, category: "Supplements" },
+    { id: "aq-mix", name: "Aq Mix", img: Prod8, category: "Nutrition" },
   ];
 
   return (
@@ -58,87 +59,100 @@ export default function ProductsSection({ showButton = true }) {   // <--- NEW P
         {/* Products Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
-            <div
+            <Link
+              to={`/product/${product.id}`}
               key={product.id}
-              onMouseEnter={() => setHoveredId(product.id)}
-              onMouseLeave={() => setHoveredId(null)}
-              className={`group relative bg-white rounded-2xl overflow-hidden transition-all duration-500 p-3
-                ${hoveredId === product.id
-                  ? "shadow-[0_8px_30px_rgba(0,0,0,0.25)] scale-[1.04]"
-                  : "shadow-xl"
-                }
-              `}
+              className="no-underline hover:no-underline"
+              style={{ textDecoration: "none" }}
             >
-              {/* Image Section */}
-              <div className="relative h-35 overflow-hidden bg-white flex items-center justify-center">
-                <img
-                  src={product.img}
-                  alt={product.name}
-                  className={`object-contain transition-all duration-700 ${
-                    hoveredId === product.id ? "scale-110 brightness-90" : "scale-100"
-                  }`}
-                  style={{
-                    width: "100%",
-                    height: "200px",
-                    objectFit: "contain",
-                  }}
-                />
+              <div
+                onMouseEnter={() => setHoveredId(product.id)}
+                onMouseLeave={() => setHoveredId(null)}
+                className={`group relative bg-white rounded-2xl overflow-hidden transition-all duration-500 p-3 cursor-pointer
+                  ${
+                    hoveredId === product.id
+                      ? "shadow-[0_8px_30px_rgba(0,0,0,0.25)] scale-[1.04]"
+                      : "shadow-xl"
+                  }
+                `}
+              >
+                {/* Image Section */}
+                <div className="relative h-35 overflow-hidden bg-white flex items-center justify-center">
+                  <img
+                    src={product.img}
+                    alt={product.name}
+                    className={`object-contain transition-all duration-700 ${
+                      hoveredId === product.id
+                        ? "scale-110 brightness-90"
+                        : "scale-100"
+                    }`}
+                    style={{
+                      width: "100%",
+                      height: "200px",
+                      objectFit: "contain",
+                    }}
+                  />
 
-                {/* Overlay */}
-                <div
-                  className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500 ${
-                    hoveredId === product.id ? "opacity-100" : "opacity-0"
-                  }`}
-                />
+                  {/* Overlay */}
+                  <div
+                    className={`absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent transition-all duration-500 ${
+                      hoveredId === product.id ? "opacity-100" : "opacity-0"
+                    }`}
+                  />
 
-                {/* Category Badge */}
-                <span
-                  className="
-                    absolute top-0 left-0 px-3 py-1.5 text-xs font-bold text-white
-                    rounded-full shadow-lg
-                    bg-gradient-to-r from-[#2d6715] to-[#0470aa]
-                    border border-white/50 animate-pulse
-                  "
-                >
-                  {product.category}
-                </span>
+                  {/* Category Badge */}
+                  <span
+                    className="
+                      absolute top-0 left-0 px-3 py-1.5 text-xs font-bold text-white
+                      rounded-full shadow-lg
+                      bg-gradient-to-r from-[#2d6715] to-[#0470aa]
+                      border border-white/50 animate-pulse
+                    "
+                  >
+                    {product.category}
+                  </span>
 
-                {/* Quick View Button */}
-                <div
-                  className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
-                    hoveredId === product.id ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"
-                  }`}
-                >
-                  <button className="px-3 py-3 bg-[#0470aa] text-white font-bold rounded-full shadow-xl hover:scale-90 transition">
-                    Quick View
-                  </button>
+                  {/* Quick View Button */}
+                  <div
+                    className={`absolute inset-0 flex items-center justify-center transition-all duration-500 ${
+                      hoveredId === product.id
+                        ? "opacity-100 translate-y-0"
+                        : "opacity-0 translate-y-4"
+                    }`}
+                  >
+                    <button className="px-3 py-3 bg-[#0470aa] text-white font-bold rounded-full shadow-xl hover:scale-90 transition">
+                      Quick View
+                    </button>
+                  </div>
+                </div>
+
+                {/* Content */}
+                <div className="p-4 mt-3">
+                  
+
+                  <div className="mt-3 flex items-center gap-2 text-[#0470aa] font-semibold text-xl !no-underline">
+                    <span className="no-underline group-hover:no-underline">Learn More</span>
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M9 5l7 7-7 7"
+                      />
+                    </svg>
+                  </div>
                 </div>
               </div>
-
-              {/* Content */}
-              <div className="p-4 mt-3">
-                <h3 className="text-xl font-bold text-gray-900 group-hover:text-[#0470aa] transition">
-                  {product.name}
-                </h3>
-
-                <button className="mt-3 flex items-center gap-2 text-[#0470aa] font-semibold text-sm">
-                  <span className="underline-offset-4 group-hover:underline">Learn More</span>
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </button>
-              </div>
-
-            </div>
+            </Link>
           ))}
         </div>
 
-        {/* View All Button — NOW CONDITIONAL */}
+        {/* View All Button */}
         {showButton && (
           <div className="text-center mt-16">
             <Link to="/products">

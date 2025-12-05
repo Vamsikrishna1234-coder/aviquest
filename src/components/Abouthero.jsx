@@ -4,7 +4,7 @@ import banner1 from "../assets/images/aboutbanner aviquest.png"
 export default function AboutHero() {
   return (
     <section
-      className="w-full h-[75vh] bg-cover bg-center bg-no-repeat relative flex items-center justify-center px-6"
+      className="w-full h-[78vh] bg-cover bg-center bg-no-repeat relative flex items-center justify-center px-6"
       style={{
         backgroundImage: `url(${banner1})`,
       }}
@@ -22,7 +22,7 @@ export default function AboutHero() {
         </h1>
         
         {/* TAGLINE */}
-        <p className="text-white/80 text-lg md:text-xl tracking-wide mb-4">
+        <p className="text-white/100 text-lg md:text-xl tracking-wide mb-4">
           Premium Poultry Nutrition & Veterinary Solutions
         </p>
 

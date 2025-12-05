@@ -25,7 +25,7 @@ export default function Header() {
 
           {/* LOGO WITH GRADIENT */}
           <Link
-            to="/Home"
+            to="/"
             className="
               inline-block
               text-4xl font-extrabold
@@ -85,7 +85,7 @@ export default function Header() {
         <div
           className="
             lg:hidden 
-            w-full px-6 py-6 animate-dropdown
+            w-full px-9 py-6 animate-dropdown
             bg-gradient-to-r from-[#0470aa] to-[#2d6715]
             text-white shadow-xl
           "

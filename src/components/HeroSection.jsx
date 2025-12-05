@@ -31,7 +31,7 @@ export default function HeroSection() {
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
-    }, 3000);
+    }, 4000);
     return () => clearInterval(timer);
   }, [current]);
 
@@ -61,7 +61,7 @@ export default function HeroSection() {
             className="w-full h-full object-cover"
             alt="slide"
           />
-          <div className="absolute inset-0 bg-black/12"></div>
+          <div className="absolute inset-0 bg-black/15"></div>
         </div>
       ))}
 

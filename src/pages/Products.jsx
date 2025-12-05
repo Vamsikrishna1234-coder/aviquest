@@ -13,7 +13,7 @@ export default function ProductsPage() {
           backgroundImage: `url(${bannerImage})`,
         }}
       >
-        <div className="absolute inset-0 bg-black/30"></div>
+        <div className="absolute inset-0 bg-black/45"></div>
 
         {/* Banner Text */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">
@@ -21,7 +21,7 @@ export default function ProductsPage() {
             Our Products
           </h1>
 
-          <p className="mt-3 text-white/90 text-lg md:text-xl max-w-2xl drop-shadow">
+          <p className="mt-3 text-white/100 text-lg md:text-xl max-w-2xl drop-shadow">
             Premium poultry nutrition, supplements & health solutions for modern poultry farming.
           </p>
         </div>
