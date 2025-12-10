@@ -1,6 +1,6 @@
 import React from "react";
 import ProductsSection from "../components/ProductsSection";
-import bannerImage from "../assets/images/aviquest hero3.png";
+import bannerImage from "../assets/images/hens banner.png";
 
 export default function ProductsPage() {
   return (
@@ -13,7 +13,7 @@ export default function ProductsPage() {
           backgroundImage: `url(${bannerImage})`,
         }}
       >
-        <div className="absolute inset-0 bg-black/45"></div>
+        <div className="absolute inset-0 bg-black/6"></div>
 
         {/* Banner Text */}
         <div className="absolute inset-0 flex flex-col items-center justify-center text-center px-4">

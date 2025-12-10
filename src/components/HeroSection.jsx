@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
-import Herobanner1 from "../assets/images/aviquest hero2.png";
+import Herobanner1 from "../assets/images/aviquest hero2.1.png";
 import Herobanner2 from "../assets/images/aviquest hero1.jpg";
 import Herobanner3 from "../assets/images/aviquest hero3.png";
 
 export default function HeroSection() {
-  
+
   const slides = [
     {
       image: Herobanner1,
@@ -27,7 +27,7 @@ export default function HeroSection() {
 
   const [current, setCurrent] = useState(0);
 
-  // Auto-slide every 3 seconds
+  // Auto-slide
   useEffect(() => {
     const timer = setInterval(() => {
       nextSlide();
@@ -46,14 +46,14 @@ export default function HeroSection() {
   return (
     <div className="w-full h-[100vh] relative overflow-hidden bg-black">
 
-      {/* SLIDES (Smooth Fade + Slight Slide) */}
+      {/* SLIDES */}
       {slides.map((slide, index) => (
         <div
           key={index}
-          className={`absolute top-0 left-0 w-full h-full transition-all duration-[900ms]
-            ${index === current 
-              ? "opacity-110 translate-x-0" 
-              : "opacity-0 translate-x-5"}`
+          className={`absolute top-0 left-0 w-full h-full transition-all duration-[900ms] pointer-events-none
+            ${index === current ?
+              "opacity-100 translate-x-0" :
+              "opacity-0 translate-x-5"}`
           }
         >
           <img
@@ -61,7 +61,7 @@ export default function HeroSection() {
             className="w-full h-full object-cover"
             alt="slide"
           />
-          <div className="absolute inset-0 bg-black/15"></div>
+          <div className="absolute inset-0 bg-black/10"></div>
         </div>
       ))}
 
@@ -69,7 +69,7 @@ export default function HeroSection() {
       <button
         onClick={prevSlide}
         className="absolute left-6 top-1/2 -translate-y-1/2 bg-white/40 hover:bg-white/80 
-        text-[#0470aa] p-2 rounded-full shadow-md transition z-20"
+        text-[#0470aa] p-2 rounded-full shadow-md transition z-30 pointer-events-auto"
       >
         <FaChevronLeft size={22} />
       </button>
@@ -78,13 +78,13 @@ export default function HeroSection() {
       <button
         onClick={nextSlide}
         className="absolute right-6 top-1/2 -translate-y-1/2 bg-white/40 hover:bg-white/80 
-        text-[#0470aa] p-2 rounded-full shadow-md transition z-20"
+        text-[#0470aa] p-2 rounded-full shadow-md transition z-30 pointer-events-auto"
       >
         <FaChevronRight size={22} />
       </button>
 
-      {/* TEXT CONTENT (Lowered) */}
-      <div className="absolute inset-0 flex items-end pb-32 z-20">
+      {/* TEXT CONTENT */}
+      <div className="absolute inset-0 flex items-end pb-32 z-20 pointer-events-none">
         <div className="container mx-auto px-6 md:px-12 lg:px-20">
 
           <h1 className="text-white text-4xl md:text-6xl font-extrabold leading-tight drop-shadow-lg max-w-3xl mb-4">
@@ -93,10 +93,9 @@ export default function HeroSection() {
 
           <p className="text-white text-xl md:text-2xl max-w-2xl opacity-100">
             {slides[current].subtitle}
-        </p>
+          </p>
 
-
-          <div className="mt-8 flex gap-5">
+          <div className="mt-8 flex gap-5 pointer-events-auto">
             <button className="px-8 py-3 text-lg font-semibold bg-[#0470aa] text-white rounded-full shadow-lg hover:bg-[#036099] transition">
               Explore Products
             </button>

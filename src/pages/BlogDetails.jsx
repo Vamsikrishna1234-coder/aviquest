@@ -14,11 +14,11 @@ export default function BlogDetails() {
   }
 
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 ">
 
       {/* 🔥 HERO BANNER (70vh) */}
       <div
-        className="w-full h-[75vh] bg-cover bg-center mt-24 relative"
+        className="w-full h-[75vh] bg-cover bg-center mt-20 relative "
         style={{
           backgroundImage: `url(${blog.img})`,
         }}

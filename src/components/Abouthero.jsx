@@ -11,7 +11,7 @@ export default function AboutHero() {
     >
 
       {/* DARK OVERLAY */}
-      <div className="absolute inset-0 bg-black/40"></div>
+      <div className="absolute inset-0 bg-black/30"></div>
 
       {/* CONTENT */}
       <div className="relative max-w-5xl mx-auto text-center">

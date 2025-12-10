@@ -18,16 +18,16 @@ export default function ProductDetails() {
   }
 
   return (
-    <div className="bg-gray-50 pt-24">  {/* 🔥 FIX: padding-top instead of margin */}
+    <div className="bg-gray-50 pt-20">            {/* 🔥 FIX: padding-top instead of margin */}
 
       {/* 🔥 FULL-WIDTH 70vh BANNER */}
       <div
-        className="w-full h-[70vh] bg-cover bg-center flex items-center justify-center"
+        className="w-full h-[70vh] bg-cover bg-center flex items-center justify-center "
         style={{
           backgroundImage: `url(${Productsbanner})`,
         }}
       >
-        <div className="bg-black/40 w-full h-full flex items-center justify-center">
+        <div className="bg-black/25 w-full h-full flex items-center justify-center">
 
           {/* 🔥 Product name in green color #2d6715 */}
           <h1 className="text-5xl md:text-6xl font-extrabold drop-shadow-lg text-center"
