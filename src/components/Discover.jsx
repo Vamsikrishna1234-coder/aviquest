@@ -19,13 +19,14 @@ export default function WelcomeSection() {
   return (
     <section className="py-20 bg-white">
 
-      {/* MOBILE + TABLET = 1 COLUMN  
-          DESKTOP = 2 COLUMNS 
-          (ONLY change made: md:grid-cols-1)
+      {/* 
+        On small screens: use flex column-reverse so IMAGE appears first, CONTENT next
+        On large screens (lg): use grid with 2 columns so CONTENT is left, IMAGE is right
       */}
-      <div className="container mx-auto px-6 md:px-12 lg:px-20 grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      <div className="container mx-auto px-6 md:px-12 lg:px-20
+                      flex flex-col-reverse lg:grid lg:grid-cols-2 gap-12 items-center">
 
-        {/* LEFT CONTENT */}
+        {/* CONTENT — placed first in DOM so desktop (grid) shows it on the LEFT */}
         <div>
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-800 leading-tight text-center md:text-center lg:text-left">
             Welcome to{" "}
@@ -55,9 +56,17 @@ export default function WelcomeSection() {
           </div>
         </div>
 
-        {/* RIGHT SIDE — AUTO SWAPPING IMAGE */}
+        {/* IMAGE — placed second in DOM so desktop (grid) shows it on the RIGHT.
+                      On small screens, flex-col-reverse will visually put it first. */}
         <div className="flex justify-center">
-          <div className="w-full max-w-xl h-96 rounded-2xl overflow-hidden shadow-lg">
+          <div className="w-full 
+              aspect-[4/3]        /* Mobile: shorter height */
+              sm:aspect-[5/3]     /* Small screens */
+              md:aspect-[16/9]    /* Tablets: wider */
+              lg:aspect-[16/9]    /* Desktop: widescreen */
+              rounded-2xl 
+              overflow-hidden 
+              shadow-lg">
             <img
               src={images[currentIndex]}
               alt="Aviquest"

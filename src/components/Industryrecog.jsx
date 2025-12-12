@@ -1,6 +1,6 @@
 import React from "react";
-import p1 from "../assets/images/alphafacts IR.png";
-import p2 from "../assets/images/amino IR.png";
+import p1 from "../assets/images/alpha facts.png";
+import p2 from "../assets/images/amino.png";
 import p3 from "../assets/images/fido IR.png";
 import p4 from "../assets/images/cognate IR.png";
 
