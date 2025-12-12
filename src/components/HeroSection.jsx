@@ -39,7 +39,16 @@ export default function HeroSection() {
     setCurrent((prev) => (prev === 0 ? slides.length - 1 : prev - 1));
 
   return (
-    <div className="w-full h-[90vh] md:h-[100vh] relative overflow-hidden bg-black">
+    <div
+      className="
+        w-full 
+        h-[78vh]      /* small mobile */
+        sm:h-[65vh]   /* large mobile */
+        md:h-[90vh]   /* tablets */
+        lg:h-[100vh]  /* desktop */
+        relative overflow-hidden bg-black
+      "
+    >
 
       {/* SLIDES */}
       {slides.map((slide, index) => (
@@ -93,19 +102,20 @@ export default function HeroSection() {
           {/* Subtitle */}
           <p
             className="
+              hidden sm:block
               text-white 
-              text-base sm:text-lg md:text-2xl 
-              max-w-md sm:max-w-xl md:max-w-2xl 
+              text-lg md:text-2xl 
+              max-w-xl md:max-w-2xl 
               opacity-100
             "
           >
             {slides[current].subtitle}
           </p>
 
+
           {/* BUTTONS */}
           <div className="mt-6 sm:mt-8 flex gap-3 sm:gap-5 pointer-events-auto">
 
-            {/* EXPLORE PRODUCTS */}
             <button
               onClick={() => navigate("/products")}
               className="
@@ -121,7 +131,6 @@ export default function HeroSection() {
               Explore Products
             </button>
 
-            {/* CONTACT US */}
             <button
               onClick={() => navigate("/contact")}
               className="

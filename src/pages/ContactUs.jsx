@@ -15,7 +15,7 @@ export default function ContactUs() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[75vh] md:h-[65vh] w-full overflow-hidden">
+      <section className="relative h-[75vh] md:h-[80vh] w-full overflow-hidden">
         <img
           src={Contactbanner}
           alt="Contact Us"
