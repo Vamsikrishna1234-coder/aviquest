@@ -15,13 +15,13 @@ export default function ContactUs() {
   return (
     <>
       {/* Hero Section */}
-      <section className="relative h-[75vh] md:h-[80vh] w-full overflow-hidden">
+      <section className="relative h-[75vh] md:h-[90vh] w-full overflow-hidden">
         <img
           src={Contactbanner}
           alt="Contact Us"
           className="w-full h-full object-cover brightness-75"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/30 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-black/30 to-transparent" />
 
         <div
           className="absolute inset-0 flex flex-col items-center justify-center text-center px-6"

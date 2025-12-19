@@ -4,7 +4,7 @@ import bannerImage from "../assets/images/hens banner.png";
 
 export default function ProductsPage() {
   return (
-    <div className="pt-20">
+    <div className="pt-16">
 
       {/* IMAGE BANNER */}
       <section

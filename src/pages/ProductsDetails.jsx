@@ -18,7 +18,7 @@ export default function ProductDetails() {
   }
 
   return (
-    <div className="bg-gray-50 pt-20">            {/* 🔥 FIX: padding-top instead of margin */}
+    <div className="bg-gray-50 pt-16">            {/* 🔥 FIX: padding-top instead of margin */}
 
       {/* 🔥 FULL-WIDTH 70vh BANNER */}
       <div

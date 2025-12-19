@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { FaBars, FaTimes } from "react-icons/fa";
-import { FaWhatsapp } from "react-icons/fa";
+import { FaBars, FaTimes, FaWhatsapp } from "react-icons/fa";
+
+// 🔹 IMPORT YOUR LOGO IMAGE
+import logo from "../assets/images/aviquest logoR.png"; 
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -20,21 +22,16 @@ export default function Header() {
   return (
     <header className="shadow-md w-full fixed top-0 left-0 z-50 bg-white">
       {/* NAVBAR */}
-      <nav className="bg-white py-4 shadow-sm">
+      <nav className="bg-white py-2 shadow-sm">
         <div className="max-w-[1280px] mx-auto flex items-center justify-between px-6">
 
-          {/* LOGO WITH GRADIENT */}
-          <Link
-            to="/"
-            className="
-              inline-block
-              text-4xl font-extrabold
-              bg-gradient-to-r from-[#0470aa] to-[#2d6715]
-              bg-clip-text !text-transparent
-              tracking-wider !no-underline
-            "
-          >
-            AVIQUEST
+          {/* LOGO IMAGE */}
+          <Link to="/" className="!no-underline">
+            <img
+              src={logo}
+              alt="AviQuest Logo"
+              className="h-12 md:h-18 w-auto object-contain cursor-pointer"
+            />
           </Link>
 
           {/* DESKTOP MENU */}
@@ -80,24 +77,23 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* MOBILE & TABLET DROPDOWN WITH GRADIENT BACKGROUND */}
+      {/* MOBILE & TABLET MENU */}
       {isOpen && (
         <div
           className="
-            lg:hidden 
+            lg:hidden
             w-full px-9 py-6 animate-dropdown
             bg-gradient-to-r from-[#0470aa] to-[#2d6715]
             text-white shadow-xl
           "
         >
-          {/* MENU ITEMS */}
-          <ul className="flex flex-col gap-6 text-[20px] font-medium text-white">
+          <ul className="flex flex-col gap-6 text-[20px] font-medium">
             {menuItems.map((item) => (
               <li key={item.path}>
                 <Link
                   to={item.path}
-                  className={`!no-underline ${
-                    isActive(item.path) ? "font-bold text-white" : "text-white"
+                  className={`text-white !no-underline${
+                    isActive(item.path) ? "font-bold" : ""
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
@@ -108,7 +104,7 @@ export default function Header() {
           </ul>
 
           {/* WhatsApp */}
-          <div className="mt-6 flex items-center gap-3 text-white text-xl font-bold">
+          <div className="mt-6 flex items-center gap-3 text-xl font-bold">
             <FaWhatsapp size={26} />
             +91 9876543210
           </div>
